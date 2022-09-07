@@ -1,70 +1,80 @@
-import url('https:fonts.googleapis.com/css?family=open+sans&display=swap');
- body {
-       font-family: 'open sans',sans-serif ;
-       background: blue;
+html,
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
-nav{
-    position: relative;
-    margin: 270px auto 0;
-    width: 590px;
-    height: 50px;
-    background: #34495e;
-    border-radius: 8px;
-    font-size: 0;
-    box box-shadow: 0 2px 3px 0 rgb(0,0,0,.1);
+body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: yellow;
 }
-nav a{
-    font-size: 15px;
-    text-transform: uppercase;
-    color: white;
-    text-decoration: none;
-    line-height: 50px;
-    position: relative;
-    z-index: 1;
+p{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em;
+    font-weight: 700;
+}
+p span{
     display: inline-block;
-    text-align: center;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500;
+    -webkit-font-smoothing: antialiased;
 }
-nav .animation{
-position: absolute;
-height: 100%;
-top: 0;
-z-index: 0;
-background: red;
-border-radius: 8px;
-transition: all .5s ease 0s;
+p span::before,
+p span::after{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    transform-origin: left top;
+    transition: all ease-out 0.3s;
+    content: attr(data-text);
 }
-nav a:nth-child(1){
-    width:100px;
+p span::before{
+    z-index: 1;
+    color: rgba(0,0,0,0.2);
+    transform: scale(1.1,1) skew(0deg, 20deg);
 }
-nav .start-home, a:nth-child(1):hover~.animation{
-    width:100px;
-    left: 0;
+p span::after{
+    z-index: 2;
+    color:yellow;
+    text-shadow: -1px 0 1px yellow, 1px 0 1px 
+    rgba(0,0,0,0.8);
+    transform:  rotateY(-40deg);
 }
-nav a:nth-child(2){
-    width:110px;
+p span:hover::before{
+    transform: scale(1.1,1) skew(0deg, 5deg);
 }
-nav a:nth-child(2):hover~.animation{
-    width: 110px;
-    left: 100px;
+p span:hover::after{
+    transform: rotateY(-10deg);
 }
-nav a:nth-child(3){
-    width:100px;
+p span + span{
+    margin-left:0.3em;
 }
-nav a:nth-child(3):hover~.animation{
-    width:100px;
-    left: 210px;
+@media (min-width: 20em){
+    p{
+        font-size: 2em;
+    }
+    p span::before,
+    p span::after {
+        display: block;
+    }
 }
-nav a:nth-child(4){
-    width:160px;
+@media(min-width: 30em){
+    p{
+        font-size: 3em;
+    }
 }
-nav a:nth-child(4):hover~.animation{
-    width:160px;
-    left: 310px;
+@media(min-width: 40em){
+    p{
+        font-size: 5em;
+    }
 }
-nav a:nth-child(5){
-    width:120px;
-}
-nav a:nth-child(5):hover~.animation{
-    width:120px;
-    left: 470px;
+@media(min-width: 60em){
+    p{
+        font-size: 8em;
+    }
 }
