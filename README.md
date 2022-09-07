@@ -1,2 +1,4 @@
 # MY-HTML-CSS-
-my html &amp; css  basic projects 
+my html & css  basic projects 
+first index.html
+second style.css
